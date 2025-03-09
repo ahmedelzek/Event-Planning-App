@@ -5,5 +5,4 @@ abstract class AppImages {
   static const String headerLogo = "${base}header_logo.png";
   static const String beingCreative = "${base}being_creative.png";
   static const String changeSettings = "${base}change_setting.png";
-  static const String googleLogo = "${base}google_logo.png";
 }

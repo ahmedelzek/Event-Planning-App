@@ -109,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                   spacing: 16,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(AppImages.googleLogo),
+                    Brand(Brands.google),
                     const Text("Login With Google")
                   ],
                 ),
