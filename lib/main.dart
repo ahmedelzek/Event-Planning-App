@@ -1,3 +1,4 @@
+import 'package:evently/ui/screens/auth/forget_password/forget_password.dart';
 import 'package:evently/ui/screens/auth/login/login_screen.dart';
 import 'package:evently/ui/screens/auth/register/register_screen.dart';
 import 'package:evently/ui/screens/setup/setup_screen.dart';
@@ -17,12 +18,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Evently',
       theme: AppTheme.lightTheme,
-      initialRoute: RegisterScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),
         SetupScreen.routeName: (_) => const SetupScreen(),
         LoginScreen.routeName: (_) => const LoginScreen(),
         RegisterScreen.routeName: (_) => const RegisterScreen(),
+        ForgetPasswordScreen.routeName: (_) => const ForgetPasswordScreen(),
       },
     );
   }

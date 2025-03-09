@@ -1,3 +1,4 @@
+import 'package:evently/ui/screens/auth/forget_password/forget_password.dart';
 import 'package:evently/ui/utilities/app_assets.dart';
 import 'package:evently/ui/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
@@ -41,14 +42,19 @@ class LoginScreen extends StatelessWidget {
                     suffixIcon: const Icon(EvaIcons.eye),
                     labelStyle: Theme.of(context).textTheme.bodyLarge,
                   )),
-              Text(
-                "Forget Password?",
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    fontStyle: FontStyle.italic,
-                    decoration: TextDecoration.underline,
-                    decorationThickness: 2,
-                    decorationColor: Theme.of(context).primaryColor),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, ForgetPasswordScreen.routeName);
+                },
+                child: Text(
+                  "Forget Password?",
+                  textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      decoration: TextDecoration.underline,
+                      decorationThickness: 2,
+                      decorationColor: Theme.of(context).primaryColor),
+                ),
               ),
               FilledButton(
                 onPressed: () {},
