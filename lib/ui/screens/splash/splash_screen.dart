@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 import '../../utilities/app_assets.dart';
-import '../auth/auth_screen.dart';
+import '../auth/login/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = "splash";
+
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () async {
-      Navigator.pushReplacementNamed(context, AuthScreen.routeName);
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     });
     return Scaffold(
       appBar: null,

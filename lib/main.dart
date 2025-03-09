@@ -1,5 +1,8 @@
-import 'package:evently/ui/screens/auth/auth_screen.dart';
+import 'package:evently/ui/screens/auth/login/login_screen.dart';
+import 'package:evently/ui/screens/auth/register/register_screen.dart';
+import 'package:evently/ui/screens/setup/setup_screen.dart';
 import 'package:evently/ui/screens/splash/splash_screen.dart';
+import 'package:evently/ui/utilities/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,14 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Evently',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      initialRoute: SplashScreen.routeName,
+      theme: AppTheme.lightTheme,
+      initialRoute: SetupScreen.routeName,
       routes: {
-        SplashScreen.routeName: (context) => const SplashScreen(),
-        AuthScreen.routeName: (context) => const AuthScreen(),
+        SplashScreen.routeName: (_) => const SplashScreen(),
+        SetupScreen.routeName: (_) => const SetupScreen(),
+        LoginScreen.routeName: (_) => const LoginScreen(),
+        RegisterScreen.routeName: (_) => const RegisterScreen(),
       },
     );
   }
