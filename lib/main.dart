@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Evently',
       theme: AppTheme.lightTheme,
-      initialRoute: LoginScreen.routeName,
+      initialRoute: RegisterScreen.routeName,
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),
         SetupScreen.routeName: (_) => const SetupScreen(),
