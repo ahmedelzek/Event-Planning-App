@@ -1,4 +1,5 @@
 import 'package:evently/ui/screens/auth/login/login_screen.dart';
+import 'package:evently/ui/screens/auth/widgets/auth_widgets.dart';
 import 'package:evently/ui/utilities/app_assets.dart';
 import 'package:evently/ui/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
@@ -28,38 +29,10 @@ class RegisterScreen extends StatelessWidget {
                   height: 200,
                   width: 200,
                 ),
-                TextFormField(
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  decoration: InputDecoration(
-                    hintText: "Name",
-                    prefixIcon: const Icon(EvaIcons.person),
-                    labelStyle: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-                TextFormField(
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  decoration: InputDecoration(
-                    hintText: "Email",
-                    prefixIcon: const Icon(EvaIcons.email),
-                    labelStyle: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-                TextFormField(
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    prefixIcon: const Icon(EvaIcons.lock),
-                    labelStyle: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-                TextFormField(
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  decoration: InputDecoration(
-                    hintText: "Re Password",
-                    prefixIcon: const Icon(EvaIcons.lock),
-                    labelStyle: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
+                emailOrNameTextFormField(context, "Name", EvaIcons.person),
+                emailOrNameTextFormField(context),
+                passwordTextFormField(context),
+                passwordTextFormField(context, "Re Password"),
                 FilledButton(
                   onPressed: () {},
                   child: const Text("Create Account"),
