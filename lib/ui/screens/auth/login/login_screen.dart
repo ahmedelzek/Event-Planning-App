@@ -1,9 +1,12 @@
+import 'package:evently/l10n/app_translations.dart';
 import 'package:evently/ui/screens/auth/forget_password/forget_password.dart';
 import 'package:evently/ui/screens/auth/widgets/auth_widgets.dart';
 import 'package:evently/ui/utilities/app_assets.dart';
 import 'package:evently/ui/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
 
+import '../../../widgets/theme_switcher.dart';
 import '../register/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -21,7 +24,7 @@ class LoginScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              spacing: 20,
+              spacing: 16,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Image.asset(
@@ -29,8 +32,11 @@ class LoginScreen extends StatelessWidget {
                   height: 200,
                   width: 200,
                 ),
-                emailOrNameTextFormField(context),
-                passwordTextFormField(context),
+                emailOrNameTextFormField(context,
+                    hint: getTranslations(context).email,
+                    iconData: EvaIcons.email),
+                passwordTextFormField(context,
+                    hint: getTranslations(context).password),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(
@@ -40,10 +46,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 FilledButton(
                   onPressed: () {},
-                  child: const Text("Login"),
-                ),
-                const SizedBox(
-                  height: 10,
+                  child: Text(getTranslations(context).login),
                 ),
                 InkWell(
                   onTap: () {
@@ -54,8 +57,9 @@ class LoginScreen extends StatelessWidget {
                 orText(context),
                 loginWithGoogleButton(context),
                 const Row(
+                  spacing: 16,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [LanguageSwitcher()],
+                  children: [LanguageSwitcher(), ThemeSwitcher()],
                 )
               ],
             ),

@@ -1,3 +1,4 @@
+import 'package:evently/l10n/app_translations.dart';
 import 'package:evently/ui/screens/auth/login/login_screen.dart';
 import 'package:evently/ui/screens/auth/widgets/auth_widgets.dart';
 import 'package:evently/ui/utilities/app_assets.dart';
@@ -15,7 +16,7 @@ class RegisterScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            title: const Text("Register"),
+            title: Text(getTranslations(context).register),
             centerTitle: true,
           ),
           body: SingleChildScrollView(
@@ -27,16 +28,22 @@ class RegisterScreen extends StatelessWidget {
                 children: [
                   Image.asset(
                     AppImages.appLogo,
-                    height: 200,
-                    width: 200,
+                    height: 150,
+                    width: 150,
                   ),
-                  emailOrNameTextFormField(context, "Name", EvaIcons.person),
-                  emailOrNameTextFormField(context),
-                  passwordTextFormField(context),
-                  passwordTextFormField(context, "Re Password"),
+                  emailOrNameTextFormField(context,
+                      hint: getTranslations(context).email,
+                      iconData: EvaIcons.person),
+                  emailOrNameTextFormField(context,
+                      hint: getTranslations(context).name,
+                      iconData: EvaIcons.person),
+                  passwordTextFormField(context,
+                      hint: getTranslations(context).password),
+                  passwordTextFormField(context,
+                      hint: getTranslations(context).re_password),
                   FilledButton(
                     onPressed: () {},
-                    child: const Text("Create Account"),
+                    child: Text(getTranslations(context).create_account),
                   ),
                   InkWell(
                       onTap: () {
@@ -47,16 +54,19 @@ class RegisterScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Already Have An Account?",
+                            getTranslations(context).already_have_account,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
-                          Text("Login",
+                          Text(getTranslations(context).login,
                               style: Theme.of(context)
                                   .textTheme
                                   .labelLarge
                                   ?.copyWith(
                                       fontStyle: FontStyle.italic,
-                                      decoration: TextDecoration.underline)),
+                                      decoration: TextDecoration.underline,
+                                      decorationThickness: 2,
+                                      decorationColor:
+                                          Theme.of(context).primaryColor)),
                         ],
                       )),
                   const Row(

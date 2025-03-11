@@ -2,6 +2,7 @@ import 'package:evently/ui/utilities/app_assets.dart';
 import 'package:evently/ui/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_translations.dart';
 import '../../widgets/theme_switcher.dart';
 import '../onboarding/onboarding_screen.dart';
 
@@ -22,16 +23,19 @@ class SetupScreen extends StatelessWidget {
               Image.asset(
                 AppImages.headerLogo,
               ),
-              Image.asset(AppImages.beingCreative),
+              Image.asset(AppImages.beingCreative,
+                height: 300,
+                width: 300,
+              ),
               Text(
-                "Personalize Your Experience",
+                getTranslations(context).setup_screen_title,
                 style: Theme.of(context).textTheme.labelLarge,
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
-                "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
+                getTranslations(context).setup_screen_description,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(
@@ -40,7 +44,7 @@ class SetupScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Language:",
+                  Text(getTranslations(context).language,
                       style: Theme.of(context).textTheme.bodyMedium),
                   const LanguageSwitcher(),
                 ],
@@ -51,7 +55,8 @@ class SetupScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Theme", style: Theme.of(context).textTheme.bodyMedium),
+                  Text(getTranslations(context).theme,
+                      style: Theme.of(context).textTheme.bodyMedium),
                   const ThemeSwitcher(),
                 ],
               ),
@@ -63,7 +68,7 @@ class SetupScreen extends StatelessWidget {
                     Navigator.pushReplacementNamed(
                         context, OnboardingScreen.routeName);
                   },
-                  child: const Text("Let's Start"))
+                  child: Text(getTranslations(context).lets_start))
             ],
           ),
         ),
