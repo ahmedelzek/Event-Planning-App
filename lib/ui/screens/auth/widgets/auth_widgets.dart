@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
+import '../../../../l10n/app_translations.dart';
+
 Widget emailOrNameTextFormField(BuildContext context,
-    [String? hint = "Email", IconData? iconData = EvaIcons.email]) {
+    {required String? hint, required IconData? iconData}) {
   return TextFormField(
       style: Theme.of(context).textTheme.bodyLarge,
       decoration: InputDecoration(
@@ -12,8 +14,7 @@ Widget emailOrNameTextFormField(BuildContext context,
       ));
 }
 
-Widget passwordTextFormField(BuildContext context,
-    [String? hint = "Password"]) {
+Widget passwordTextFormField(BuildContext context, {required String? hint}) {
   return TextFormField(
       style: Theme.of(context).textTheme.bodyLarge,
       decoration: InputDecoration(
@@ -26,7 +27,7 @@ Widget passwordTextFormField(BuildContext context,
 
 Widget forgetPasswordText(BuildContext context) {
   return Text(
-    "Forget Password?",
+    getTranslations(context).forget_password,
     textAlign: TextAlign.end,
     style: Theme.of(context).textTheme.labelLarge?.copyWith(
         fontStyle: FontStyle.italic,
@@ -41,10 +42,10 @@ Widget createAccountText(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(
-        "Don't Have Account? ",
+        getTranslations(context).dont_have_account,
         style: Theme.of(context).textTheme.bodyLarge,
       ),
-      Text("Create Account",
+      Text(getTranslations(context).create_account,
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
               fontStyle: FontStyle.italic,
               decoration: TextDecoration.underline)),
@@ -60,9 +61,9 @@ Widget orText(BuildContext context) {
         thickness: 1.5,
       ),
     ),
-    const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Text("OR"),
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Text(getTranslations(context).or),
     ),
     Expanded(
       child: Divider(
@@ -82,7 +83,10 @@ Widget loginWithGoogleButton(BuildContext context) {
     child: Row(
       spacing: 16,
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [Brand(Brands.google), const Text("Login With Google")],
+      children: [
+        Brand(Brands.google),
+        Text(getTranslations(context).login_with_google)
+      ],
     ),
   );
 }

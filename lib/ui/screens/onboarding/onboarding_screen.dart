@@ -3,6 +3,7 @@ import 'package:evently/ui/utilities/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../l10n/app_translations.dart';
 import '../../utilities/shared_preferences.dart';
 import 'onboarding_page.dart';
 
@@ -19,26 +20,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  final List<Widget> _pages = [
-    const OnboardingPage(
-      title: OnboardingTexts.onboardingTitle1,
-      description: OnboardingTexts.onboardingDescription1,
-      imagePath: AppImages.onboardingImg1,
-    ),
-    const OnboardingPage(
-      title: OnboardingTexts.onboardingTitle2,
-      description: OnboardingTexts.onboardingDescription2,
-      imagePath: AppImages.onboardingImg2,
-    ),
-    const OnboardingPage(
-      title: OnboardingTexts.onboardingTitle3,
-      description: OnboardingTexts.onboardingDescription3,
-      imagePath: AppImages.onboardingImg3,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      OnboardingPage(
+        title: getTranslations(context).onboarding_title_1,
+        description: getTranslations(context).onboarding_description_1,
+        imagePath: AppImages.onboardingImg1,
+      ),
+      OnboardingPage(
+        title: getTranslations(context).onboarding_title_2,
+        description: getTranslations(context).onboarding_description_2,
+        imagePath: AppImages.onboardingImg2,
+      ),
+      OnboardingPage(
+        title: getTranslations(context).onboarding_title_3,
+        description: getTranslations(context).onboarding_description_3,
+        imagePath: AppImages.onboardingImg3,
+      ),
+    ];
+
     return SafeArea(
         child: Scaffold(
       appBar: null,
@@ -56,16 +57,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   _currentPage = index;
                 });
               },
-              children: _pages,
+              children: pages,
             )),
-            _buildNavigationControls(),
+            _buildNavigationControls(pages.length),
           ],
         ),
       ),
     ));
   }
 
-  Widget _buildNavigationControls() {
+  Widget _buildNavigationControls(int pageCount) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -93,7 +94,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
         SmoothPageIndicator(
           controller: _pageController,
-          count: _pages.length,
+          count: pageCount,
           effect: ExpandingDotsEffect(
             dotHeight: 8,
             dotWidth: 8,
@@ -109,7 +110,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             icon: Icon(Icons.arrow_forward,
                 color: Theme.of(context).primaryColor, size: 30),
             onPressed: () async {
-              if (_currentPage < _pages.length - 1) {
+              if (_currentPage < pageCount - 1) {
                 _pageController.nextPage(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,

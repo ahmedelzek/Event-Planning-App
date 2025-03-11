@@ -6,6 +6,7 @@ import 'package:evently/ui/screens/setup/setup_screen.dart';
 import 'package:evently/ui/screens/splash/splash_screen.dart';
 import 'package:evently/ui/utilities/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
       title: 'Evently',
       theme: AppTheme.lightTheme,
       initialRoute: SplashScreen.routeName,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('ar'),
       routes: {
         SplashScreen.routeName: (_) => const SplashScreen(),
         OnboardingScreen.routeName: (_) => const OnboardingScreen(),

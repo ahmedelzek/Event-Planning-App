@@ -1,8 +1,10 @@
+import 'package:evently/l10n/app_translations.dart';
 import 'package:evently/ui/screens/auth/forget_password/forget_password.dart';
 import 'package:evently/ui/screens/auth/widgets/auth_widgets.dart';
 import 'package:evently/ui/utilities/app_assets.dart';
 import 'package:evently/ui/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 import '../register/register_screen.dart';
 
@@ -29,8 +31,11 @@ class LoginScreen extends StatelessWidget {
                   height: 200,
                   width: 200,
                 ),
-                emailOrNameTextFormField(context),
-                passwordTextFormField(context),
+                emailOrNameTextFormField(context,
+                    hint: getTranslations(context).email,
+                    iconData: EvaIcons.email),
+                passwordTextFormField(context,
+                    hint: getTranslations(context).password),
                 InkWell(
                   onTap: () {
                     Navigator.pushNamed(
@@ -40,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 FilledButton(
                   onPressed: () {},
-                  child: const Text("Login"),
+                  child: Text(getTranslations(context).login),
                 ),
                 const SizedBox(
                   height: 10,

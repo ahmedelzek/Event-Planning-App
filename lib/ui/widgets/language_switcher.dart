@@ -11,6 +11,7 @@ class LanguageSwitcher extends StatefulWidget {
 
 class _LanguageSwitcherState extends State<LanguageSwitcher> {
   var local = "ar";
+
   @override
   Widget build(BuildContext context) {
     return AnimatedToggleSwitch<String>.rolling(

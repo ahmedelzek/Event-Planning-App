@@ -11,6 +11,7 @@ class ThemeSwitcher extends StatefulWidget {
 
 class _ThemeSwitcherState extends State<ThemeSwitcher> {
   var selectedThemeMode = ThemeMode.light;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedToggleSwitch<ThemeMode>.rolling(
