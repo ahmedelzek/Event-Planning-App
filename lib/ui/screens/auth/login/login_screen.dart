@@ -17,46 +17,48 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: null,
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            spacing: 20,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(
-                AppImages.appLogo,
-                height: 200,
-                width: 200,
-              ),
-              emailOrNameTextFormField(context),
-              passwordTextFormField(context),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, ForgetPasswordScreen.routeName);
-                },
-                child: forgetPasswordText(context),
-              ),
-              FilledButton(
-                onPressed: () {},
-                child: const Text("Login"),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, RegisterScreen.routeName);
-                },
-                child: createAccountText(context),
-              ),
-              orText(context),
-              loginWithGoogleButton(context),
-              const Spacer(),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [LanguageSwitcher()],
-              )
-            ],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              spacing: 20,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Image.asset(
+                  AppImages.appLogo,
+                  height: 200,
+                  width: 200,
+                ),
+                emailOrNameTextFormField(context),
+                passwordTextFormField(context),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, ForgetPasswordScreen.routeName);
+                  },
+                  child: forgetPasswordText(context),
+                ),
+                FilledButton(
+                  onPressed: () {},
+                  child: const Text("Login"),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, RegisterScreen.routeName);
+                  },
+                  child: createAccountText(context),
+                ),
+                orText(context),
+                loginWithGoogleButton(context),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [LanguageSwitcher()],
+                )
+              ],
+            ),
           ),
         ),
       ),

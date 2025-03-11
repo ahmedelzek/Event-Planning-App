@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../utilities/app_assets.dart';
+import '../../utilities/shared_preferences.dart';
 import '../auth/login/login_screen.dart';
+import '../setup/setup_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = "splash";
@@ -11,7 +13,12 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () async {
-      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+      final isOnboardingCompleted = await getOnboardingCompleted();
+      // Navigate to the appropriate screen
+      Navigator.pushReplacementNamed(
+        context,
+        isOnboardingCompleted ? LoginScreen.routeName : SetupScreen.routeName,
+      );
     });
     return Scaffold(
       appBar: null,
