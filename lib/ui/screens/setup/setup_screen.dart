@@ -3,6 +3,7 @@ import 'package:evently/ui/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/theme_switcher.dart';
+import '../onboarding/onboarding_screen.dart';
 
 class SetupScreen extends StatelessWidget {
   static const String routeName = "setup";
@@ -57,7 +58,12 @@ class SetupScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              FilledButton(onPressed: () {}, child: const Text("Let's Start"))
+              FilledButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, OnboardingScreen.routeName);
+                  },
+                  child: const Text("Let's Start"))
             ],
           ),
         ),

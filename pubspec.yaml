@@ -15,6 +15,8 @@ dependencies:
   l10n_flutter: ^1.0.7
   animated_toggle_switch: ^0.8.4
   icons_plus: ^5.0.0
+  smooth_page_indicator: ^1.2.1
+  shared_preferences: ^2.5.2
 
 dev_dependencies:
   flutter_test:
