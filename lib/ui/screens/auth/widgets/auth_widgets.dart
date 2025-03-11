@@ -48,7 +48,10 @@ Widget createAccountText(BuildContext context) {
       Text(getTranslations(context).create_account,
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
               fontStyle: FontStyle.italic,
-              decoration: TextDecoration.underline)),
+              decoration:
+              TextDecoration.underline,
+              decorationThickness: 2,
+              decorationColor: Theme.of(context).primaryColor)),
     ],
   );
 }

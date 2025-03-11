@@ -28,8 +28,8 @@ class RegisterScreen extends StatelessWidget {
                 children: [
                   Image.asset(
                     AppImages.appLogo,
-                    height: 200,
-                    width: 200,
+                    height: 150,
+                    width: 150,
                   ),
                   emailOrNameTextFormField(context,
                       hint: getTranslations(context).email,
@@ -63,7 +63,10 @@ class RegisterScreen extends StatelessWidget {
                                   .labelLarge
                                   ?.copyWith(
                                       fontStyle: FontStyle.italic,
-                                      decoration: TextDecoration.underline)),
+                                      decoration: TextDecoration.underline,
+                                      decorationThickness: 2,
+                                      decorationColor:
+                                          Theme.of(context).primaryColor)),
                         ],
                       )),
                   const Row(

@@ -16,19 +16,22 @@ class OnboardingPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-          spacing: 30,
+        spacing: 10,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset(imagePath),
-            Text(
-              textAlign: TextAlign.start,
-              title,
-              style: Theme.of(context).textTheme.labelLarge,
+            Image.asset(imagePath,
+              height: 300,
+              width: 300,
             ),
-            Text(
+             Text(
                 textAlign: TextAlign.start,
-                description,
-                style: Theme.of(context).textTheme.titleMedium)
+                title,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+             Text(
+                  textAlign: TextAlign.start,
+                  description,
+                  style: Theme.of(context).textTheme.bodyLarge),
           ]),
     );
   }

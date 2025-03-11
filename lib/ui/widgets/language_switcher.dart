@@ -24,8 +24,9 @@ class _LanguageSwitcherState extends State<LanguageSwitcher> {
           indicatorColor: Theme.of(context).primaryColor,
           borderColor: Theme.of(context).primaryColor),
       onChanged: (newLocale) {
-        languageProvider.changeLanguage(newLocale);
-        // return Future<dynamic>.delayed(const Duration(seconds: 3));
+        Future.delayed(const Duration(microseconds: 500),(){
+          languageProvider.changeLocale(newLocale);
+        });
       },
       iconBuilder: (value, foreground) {
         if (value == "ar") {

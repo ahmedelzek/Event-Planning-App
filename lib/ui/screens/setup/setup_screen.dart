@@ -23,7 +23,10 @@ class SetupScreen extends StatelessWidget {
               Image.asset(
                 AppImages.headerLogo,
               ),
-              Image.asset(AppImages.beingCreative),
+              Image.asset(AppImages.beingCreative,
+                height: 300,
+                width: 300,
+              ),
               Text(
                 getTranslations(context).setup_screen_title,
                 style: Theme.of(context).textTheme.labelLarge,

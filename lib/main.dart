@@ -10,12 +10,24 @@ import 'package:evently/ui/utilities/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-  runApp(ChangeNotifierProvider(
-      create: (context) => LanguageProvider(),
-      child: ChangeNotifierProvider(
-          create: (context) => ThemeProvider(), child: MyApp())));
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) {
+        return LanguageProvider(
+            sharedPreferences.getString(LanguageProvider.localeKey));
+      }),
+      ChangeNotifierProvider(
+          create: (_) => ThemeProvider(
+              sharedPreferences.getBool(ThemeProvider.isLightModeKey) ?? true)),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -30,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.currentTheme,
-      initialRoute: SetupScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: Locale(languageProvider.currentLocale),
